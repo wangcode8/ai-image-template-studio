@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI Image Template Studio - open-source static demo for an AI-powered image template editor." />
+  <title>AI Image Template Studio</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="brand">
+      <div class="logo">AI</div>
+      <div>
+        <strong>AI Image Template Studio</strong>
+        <span>Open-source template editor</span>
+      </div>
+    </div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#roadmap">Roadmap</a>
+      <a class="github" href="https://github.com/wangcode8/ai-image-template-studio">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="pill">Static GitHub Pages Demo · Open Source Roadmap</div>
+        <h1>AI-powered image template editing for creators and small businesses.</h1>
+        <p class="lead">
+          A polished open-source concept for building social media posters, e-commerce visuals,
+          marketing cards, and AI-assisted image workflows with React, Vite, TypeScript,
+          Supabase, and a configurable AI Gateway.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="https://github.com/wangcode8/ai-image-template-studio">View Repository</a>
+          <a class="btn" href="CODEX_APPLICATION.md">Application Notes</a>
+        </div>
+        <div class="metrics">
+          <div><b>React/Vite</b><span>Frontend direction</span></div>
+          <div><b>Supabase</b><span>Auth, storage, drafts</span></div>
+          <div><b>AI Gateway</b><span>Provider-agnostic plan</span></div>
+        </div>
+      </div>
+
+      <div class="mock-editor" aria-label="Product UI preview">
+        <div class="window-bar"><span></span><span></span><span></span><em>Template Editor Preview</em></div>
+        <div class="editor-grid">
+          <aside class="sidebar">
+            <h4>Templates</h4>
+            <button class="active">E-commerce poster</button>
+            <button>Social media card</button>
+            <button>Product showcase</button>
+            <button>AI generated cover</button>
+          </aside>
+          <section class="canvas">
+            <div class="poster">
+              <div class="poster-tag">New Campaign</div>
+              <h2>Summer Product Launch</h2>
+              <p>Generate, edit, and export visual templates faster.</p>
+              <div class="poster-image">
+                <div class="sphere one"></div>
+                <div class="sphere two"></div>
+                <div class="sphere three"></div>
+              </div>
+            </div>
+          </section>
+          <aside class="panel">
+            <h4>AI Assistant</h4>
+            <label>Prompt</label>
+            <div class="input">Create a clean e-commerce banner...</div>
+            <label>Style</label>
+            <div class="chips"><span>Minimal</span><span>Bright</span><span>4K</span></div>
+            <button class="generate">Generate</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-head">
+        <span>Core modules</span>
+        <h2>Designed as a real open-source product, not only a landing page.</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">✦</div>
+          <h3>Visual Template Editor</h3>
+          <p>Canvas-based editing direction for text, image, layout, reusable blocks, and export-ready marketing assets.</p>
+        </article>
+        <article class="card">
+          <div class="icon">▣</div>
+          <h3>Template Library</h3>
+          <p>Reusable poster and social media template structure for creators, stores, and lightweight design workflows.</p>
+        </article>
+        <article class="card">
+          <div class="icon">◎</div>
+          <h3>AI Image Workflow</h3>
+          <p>Planned AI gateway layer for text-to-image, image retrieval, provider switching, and prompt workflow experiments.</p>
+        </article>
+        <article class="card">
+          <div class="icon">◆</div>
+          <h3>Supabase Integration</h3>
+          <p>Roadmap for auth, drafts, storage buckets, templates, generation records, and membership-related data.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="architecture" class="section split">
+      <div>
+        <span class="eyebrow">Architecture</span>
+        <h2>Frontend-first demo with a clear path to full-stack self-hosting.</h2>
+        <p>
+          The current GitHub Pages version is intentionally static so it can be deployed without local setup.
+          The repository documents how the full project can evolve into a self-hosted React + Supabase + AI Gateway application.
+        </p>
+      </div>
+      <div class="diagram">
+        <div>React / Vite UI</div>
+        <b>→</b>
+        <div>Supabase</div>
+        <b>→</b>
+        <div>AI Gateway</div>
+        <b>→</b>
+        <div>Image Providers</div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section roadmap">
+      <div class="section-head">
+        <span>Roadmap</span>
+        <h2>What Codex will help improve.</h2>
+      </div>
+      <div class="timeline">
+        <div><strong>01</strong><h3>Clean public release</h3><p>Remove sensitive configs, organize docs, improve onboarding, and keep the demo easy to review.</p></div>
+        <div><strong>02</strong><h3>AI Gateway migration</h3><p>Replace platform-specific API calls with provider-agnostic endpoints and typed request contracts.</p></div>
+        <div><strong>03</strong><h3>Supabase setup scripts</h3><p>Document database migrations, storage policies, auth setup, and deployment secrets.</p></div>
+        <div><strong>04</strong><h3>Tests and security review</h3><p>Add linting, component tests, route checks, dependency review, and safer environment variable handling.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      <strong>AI Image Template Studio</strong>
+      <p>Early-stage open-source project demo for GitHub Pages and Codex for Open Source application.</p>
+    </div>
+    <a href="docs/ROADMAP.md">Read roadmap</a>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
