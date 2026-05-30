@@ -15,39 +15,149 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
-    env:
-      VITE_BASE_PATH: /ai-image-template-studio/
-      VITE_APP_ID: ai-image-template-studio
-      VITE_API_ENV: production
-      VITE_LOGIN_TYPE: email
-      VITE_SHOW_POLICY: false
-      VITE_POLICY_PREFIX: ""
-      VITE_PRIVACY_POLICY_URL: ""
-      VITE_USER_POLICY_URL: ""
-      VITE_SUPABASE_URL: https://example.supabase.co
-      VITE_SUPABASE_ANON_KEY: example-anon-key
-      VITE_AI_GATEWAY_URL: ""
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+      - name: Create static demo
+        run: |
+          mkdir -p dist
+          cat > dist/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>AI Image Template Studio</title>
+            <style>
+              body {
+                margin: 0;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+                background: linear-gradient(135deg, #f8fafc, #eef2ff);
+                color: #111827;
+              }
+              .wrap {
+                max-width: 1080px;
+                margin: 0 auto;
+                padding: 72px 24px;
+              }
+              .badge {
+                display: inline-block;
+                padding: 8px 14px;
+                border-radius: 999px;
+                background: #e0e7ff;
+                color: #3730a3;
+                font-weight: 600;
+                font-size: 14px;
+              }
+              h1 {
+                font-size: 56px;
+                line-height: 1.05;
+                margin: 28px 0 20px;
+                letter-spacing: -1.5px;
+              }
+              p {
+                font-size: 20px;
+                line-height: 1.7;
+                color: #4b5563;
+                max-width: 780px;
+              }
+              .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: 18px;
+                margin-top: 42px;
+              }
+              .card {
+                background: rgba(255,255,255,0.78);
+                border: 1px solid #e5e7eb;
+                border-radius: 22px;
+                padding: 24px;
+                box-shadow: 0 20px 50px rgba(15,23,42,0.08);
+              }
+              .card h3 {
+                margin: 0 0 10px;
+                font-size: 20px;
+              }
+              .card p {
+                font-size: 15px;
+                line-height: 1.6;
+                margin: 0;
+              }
+              .btns {
+                margin-top: 36px;
+                display: flex;
+                gap: 14px;
+                flex-wrap: wrap;
+              }
+              a {
+                color: inherit;
+              }
+              .btn {
+                display: inline-block;
+                padding: 13px 18px;
+                border-radius: 14px;
+                text-decoration: none;
+                font-weight: 700;
+                border: 1px solid #d1d5db;
+                background: white;
+              }
+              .primary {
+                background: #111827;
+                color: white;
+                border-color: #111827;
+              }
+              .footer {
+                margin-top: 56px;
+                color: #6b7280;
+                font-size: 14px;
+              }
+            </style>
+          </head>
+          <body>
+            <main class="wrap">
+              <span class="badge">Open Source Static Demo</span>
+              <h1>AI Image Template Studio</h1>
+              <p>
+                An open-source image template editor concept built around React, Vite,
+                TypeScript, Supabase, and a configurable AI Gateway. This static demo
+                is published with GitHub Pages for the open-source project application.
+              </p>
 
-      - name: Enable Corepack
-        run: corepack enable
+              <div class="btns">
+                <a class="btn primary" href="https://github.com/wangcode8/ai-image-template-studio">View GitHub Repository</a>
+                <a class="btn" href="https://github.com/wangcode8/ai-image-template-studio/blob/main/CODEX_APPLICATION.md">Codex Application Notes</a>
+              </div>
 
-      - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+              <section class="cards">
+                <div class="card">
+                  <h3>Template Editor</h3>
+                  <p>Roadmap for a creator-friendly visual template editor for social media and e-commerce content.</p>
+                </div>
+                <div class="card">
+                  <h3>Supabase Ready</h3>
+                  <p>Designed for authentication, storage, drafts, membership data, and project persistence.</p>
+                </div>
+                <div class="card">
+                  <h3>AI Gateway</h3>
+                  <p>Planned provider-agnostic AI gateway for image generation and assistant workflows.</p>
+                </div>
+                <div class="card">
+                  <h3>Self-hosting Roadmap</h3>
+                  <p>Documentation and deployment notes are included to make future self-hosting easier.</p>
+                </div>
+              </section>
 
-      - name: Build
-        run: pnpm build
+              <div class="footer">
+                Current status: early-stage open-source release with static GitHub Pages demo.
+              </div>
+            </main>
+          </body>
+          </html>
+          EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
